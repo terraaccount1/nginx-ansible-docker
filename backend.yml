@@ -1,0 +1,13 @@
+---
+
+- name: Configure nginx 
+  hosts: all
+  tags: web,nginx
+  roles:
+    - base
+
+- name: Configure backend
+  hosts: backend
+  tags: backend,golang
+  roles:
+    - backend

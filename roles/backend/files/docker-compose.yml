@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  golang1:
+    container_name: golang-server-1
+    image: popov010/test:1.0
+    networks:
+      - my-network
+    ports:
+      - "20080:8000"
+  
+  golang2:
+    container_name: golang-server-2
+    image: popov010/test:1.0
+    networks:
+      - my-network
+    ports:
+      - "10080:8000"
+
+
+networks:
+  my-network:
+    driver: bridge

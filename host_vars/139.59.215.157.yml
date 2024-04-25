@@ -1,0 +1,4 @@
+nginx_package: nginx
+nginx_config: reverse-proxy.j2
+docker_package: docker
+docker_compose_package: docker-compose

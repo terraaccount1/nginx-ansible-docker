@@ -1,0 +1,16 @@
+- name: Install docker and docker compose
+  ansible.builtin.package:
+    name:
+      - "{{ docker_package }}"
+      - "{{ docker_compose_package }}"
+
+- name: Copy docker-compose file
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: /app/
+
+- name: start Docker Compose
+  tags: docker-compose
+  ansible.builtin.shell:
+    cmd: "docker-compose -f docker-compose.yml up -d"
+    chdir: /app/
